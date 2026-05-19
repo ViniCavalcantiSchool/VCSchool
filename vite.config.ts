@@ -47,6 +47,18 @@ export default defineConfig(({mode}) => {
                .replace(/http:\/\/127\.0\.0\.1:\d+\//g, 'https://vinicavalcanti.com/')
                .replace(/http:\/\/localhost:\d+\//g, 'https://vinicavalcanti.com/')
                .replace(/\?utm_source=direto(?:&|&amp;)sck=\d+_\d+/g, '')
+               .replace(
+                 /<script[^>]*src="https:\/\/connect\.facebook\.net\/[^"]*"[^>]*>\s*<\/script>/g,
+                 ''
+               )
+               .replace(
+                 /<script[^>]*src="https:\/\/api\.vinicavalcanti\.com\/(gtm|gtag|6wyopelvelg)[^"]*"[^>]*>\s*<\/script>/g,
+                 ''
+               )
+               .replace(
+                 /<script[^>]*src="https:\/\/capi-automation\.s3[^"]*"[^>]*>\s*<\/script>/g,
+                 ''
+               )
                .replace(/style="opacity: 0;[^"]*"/g, '')
                .replace(/style="[^"]*transform: translateX\(-?\d+\.?\d*%\)[^"]*"/g, '');
           }
