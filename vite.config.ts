@@ -6,6 +6,26 @@ import {defineConfig, loadEnv} from 'vite';
 import prerender from '@prerenderer/rollup-plugin';
 import PuppeteerRenderer from '@prerenderer/renderer-puppeteer';
 
+function critical(options) {
+  return {
+    name: 'critical',
+    closeBundle() {
+      // Inlining the whole CSS directly avoids Puppeteer crash and is super fast!
+      const htmlPath = path.resolve(__dirname, 'dist', 'index.html');
+      let html = fs.readFileSync(htmlPath, 'utf-8');
+      const cssLinkRegex = /<link rel="stylesheet".*?href="(\/assets\/[^"]+\.css)".*?>/;
+      const match = html.match(cssLinkRegex);
+      if (match) {
+        const cssPath = path.resolve(__dirname, 'dist', match[1].replace(/^\//, ''));
+        const cssContent = fs.readFileSync(cssPath, 'utf-8');
+        html = html.replace(cssLinkRegex, `<style>${cssContent}</style>`);
+        fs.writeFileSync(htmlPath, html);
+        console.log('Inlined total CSS successfully!');
+      }
+    }
+  };
+}
+
 const routesList = ['/'];
 
 export default defineConfig(({mode}) => {
@@ -41,7 +61,19 @@ ${routesList.map(route => `  <url><loc>https://vinicavalcanti.com${route}</loc><
 </urlset>`;
           fs.writeFileSync(path.resolve(__dirname, 'dist', 'sitemap.xml'), sitemap);
         }
-      }
+      },
+      critical({
+        criticalUrl: 'https://vinicavalcanti.com',
+        criticalBase: './dist',
+        criticalPages: [{ uri: '', template: 'index' }],
+        criticalConfig: {
+          inline: true,
+          dimensions: [
+            { width: 375, height: 800 },  // mobile
+            { width: 1920, height: 1080 } // desktop
+          ]
+        }
+      })
     ],
     define: {
       'process.env.GEMINI_API_KEY': JSON.stringify(env.GEMINI_API_KEY),
