@@ -31,8 +31,8 @@ export default function Mentorship({ t }: MentorshipProps) {
 
   const renderBody = (text: string) => {
     const boldParts = [
-      "New season starts on June 8th, with 10 weeks",
-      "A nova temporada começa em 8 de junho, com 10 semanas"
+      "One-on-one mentorship",
+      "Mentoria individual"
     ];
     
     for (const part of boldParts) {
@@ -95,7 +95,7 @@ export default function Mentorship({ t }: MentorshipProps) {
                 {t.title}
               </h3>
               
-              <p className="mt-5 text-base leading-relaxed text-black/60 line-clamp-5 min-h-[6rem] sm:min-h-[8rem] sm:text-lg">
+              <p className="mt-5 text-base leading-relaxed text-black/60 sm:text-lg whitespace-pre-wrap">
                 {renderBody(t.body)}
               </p>
               

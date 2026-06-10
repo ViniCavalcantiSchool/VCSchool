@@ -7,7 +7,7 @@ export const TRANSLATIONS = {
       mentorship: "Mentorship",
       portfolio: "Portfolio",
       contact: "Contact",
-      members: "https://members.vinicavalcanti.com/"
+      members: "https://hotmart.com/en/club/vini-cavalcanti"
     },
     hero: {
       badge: "Vini Cavalcanti School",
@@ -51,7 +51,7 @@ export const TRANSLATIONS = {
       badge: "Mentorship",
       label: "For those who want to go further",
       title: "Vini Cavalcanti Mentorship Program",
-      body: "New season starts on June 8th, with 10 weeks of direct, one-on-one guidance from a Senior Character Artist who works in the industry every day. You'll build a complete character from the very first blockout to a portfolio-ready final piece, with feedback and support at every stage of the process. This is not a course. It's a mentorship.",
+      body: "One-on-one mentorship for artists who want to grow with real industry guidance.\n\nOver 10 weeks, you’ll receive direct, one-on-one guidance from a Senior Character Artist who works in the industry every day. You’ll build a complete character from the very first blockout to a portfolio-ready final piece, with feedback and support at every stage of the process.\n\nThis is not a course. It’s a mentorship.\n\nSee the full schedule below and everything you’ll develop throughout the journey.",
       button: "Sign up now!",
       buttonInstallments: "Sign up now! 3 payments",
       checkoutInstallments: "https://pay.hotmart.com/D105581670W?off=1l4bjdm8",
@@ -60,7 +60,7 @@ export const TRANSLATIONS = {
       details: "See +",
       close: "See -",
       limitedSpots: "Limited Spots",
-      oneOnOne: "New Season | June 8th",
+      oneOnOne: "One-on-One Mentorship",
       aboutTitle: "About the mentorship",
       scheduleTitle: "Mentorship Schedule",
       checkout: "https://pay.hotmart.com/D105581670W",
@@ -157,7 +157,7 @@ export const TRANSLATIONS = {
       mentorship: "Mentoria",
       portfolio: "Portfólio",
       contact: "Contato",
-      members: "https://members.vinicavalcanti.com/"
+      members: "https://hotmart.com/en/club/vini-cavalcanti"
     },
     hero: {
       badge: "Vini Cavalcanti School",
@@ -201,7 +201,7 @@ export const TRANSLATIONS = {
       badge: "Mentoria",
       label: "Para quem quer ir mais fundo",
       title: "Vini Cavalcanti Mentorship Program",
-      body: "A nova temporada começa em 8 de junho, com 10 semanas de acompanhamento direto e individual com um Senior Character Artist que trabalha na indústria todos os dias. Você vai construir um personagem completo, do primeiro blockout até a peça final pronta para portfólio, com feedback e suporte em cada etapa do processo. Isso não é um curso. É uma mentoria.",
+      body: "Mentoria individual para artistas que querem evoluir com direção real de mercado.\n\nDurante 10 semanas, você terá acompanhamento direto, um a um, com um Senior Character Artist que atua diariamente na indústria. Você vai construir um personagem completo, desde a primeira blocagem até uma peça final pronta para portfólio, com feedback e suporte em cada etapa do processo.\n\nIsso não é um curso. É uma mentoria.\n\nVeja abaixo a grade completa e tudo o que você vai desenvolver ao longo da jornada.",
       button: "Inscreva-se agora!",
       buttonInstallments: "Inscreva-se agora! 3x",
       checkoutInstallments: "https://pay.hotmart.com/D105581670W?off=1l4bjdm8",
@@ -210,7 +210,7 @@ export const TRANSLATIONS = {
       details: "Ver +",
       close: "Ver -",
       limitedSpots: "Vagas Limitadas",
-      oneOnOne: "Nova Temporada | 8 de Junho",
+      oneOnOne: "Mentoria Individual",
       aboutTitle: "Sobre a mentoria",
       scheduleTitle: "Grade da Mentoria",
       checkout: "https://pay.hotmart.com/D105581670W",
