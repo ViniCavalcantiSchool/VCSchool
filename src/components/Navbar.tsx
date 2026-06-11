@@ -30,17 +30,35 @@ export default function Navbar({ lang, setLang, t }: NavbarProps) {
         setTimeout(() => {
           element.scrollIntoView({ behavior: 'smooth' });
         }, 10);
+      } else {
+        // Not on homepage, navigate to '/' then smooth-scroll
+        setIsOpen(false);
+        window.history.pushState({}, '', '/');
+        window.dispatchEvent(new PopStateEvent('popstate'));
+        setTimeout(() => {
+          const homeEl = document.getElementById(targetId.substring(1));
+          if (homeEl) {
+            homeEl.scrollIntoView({ behavior: 'smooth' });
+          }
+        }, 100);
       }
     } else {
       setIsOpen(false);
     }
   };
 
+  const handleLogoClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    window.history.pushState({}, '', '/');
+    window.dispatchEvent(new PopStateEvent('popstate'));
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <header className="sticky top-0 z-50 border-b border-black/5 bg-[#FCFBF8]/95 backdrop-blur-md">
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 md:py-4 lg:px-8" aria-label="Main navigation">
         <div className="flex items-center">
-          <a href="/" id="nav-logo-link" className="flex items-center outline-none focus-visible:ring-2 focus-visible:ring-[#0CA6DF] rounded-lg">
+          <a href="/" onClick={handleLogoClick} id="nav-logo-link" className="flex items-center outline-none focus-visible:ring-2 focus-visible:ring-[#0CA6DF] rounded-lg">
             <img 
               src="https://wp.vinicavalcanti.com/wp-content/uploads/2026/05/logo_vini_cavalcanti_3D.webp" 
               alt="Vini Cavalcanti School" 
@@ -56,8 +74,8 @@ export default function Navbar({ lang, setLang, t }: NavbarProps) {
 
         {/* Desktop Menu */}
         <div className="hidden items-center gap-6 md:flex">
-          <a id="nav-link-courses" className="text-sm font-medium text-black/70 hover:text-black transition-colors focus-visible:text-black outline-none" href="#courses">{t.courses}</a>
-          <a id="nav-link-mentorship" className="text-sm font-medium text-black/70 hover:text-black transition-colors focus-visible:text-black outline-none" href="#mentorship">{t.mentorship}</a>
+          <a id="nav-link-courses" onClick={(e) => handleNavClick(e, '#courses')} className="text-sm font-medium text-black/70 hover:text-black transition-colors focus-visible:text-black outline-none" href="#courses">{t.courses}</a>
+          <a id="nav-link-mentorship" onClick={(e) => handleNavClick(e, '#mentorship')} className="text-sm font-medium text-black/70 hover:text-black transition-colors focus-visible:text-black outline-none" href="#mentorship">{t.mentorship}</a>
           <a 
             id="nav-link-portfolio"
             className="text-sm font-medium text-black/70 hover:text-black transition-colors focus-visible:text-black outline-none" 

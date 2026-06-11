@@ -1,6 +1,7 @@
-import React, { useState, lazy, Suspense } from 'react';
+import React, { useState, useEffect, lazy, Suspense } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
+import OneOnOneMentorship from './components/OneOnOneMentorship';
 import { TRANSLATIONS, COURSES_EN, COURSES_PT, BUNDLES, FAQ_ITEMS, SOCIAL_LINKS } from './constants';
 
 const About = lazy(() => import('./components/About'));
@@ -19,7 +20,26 @@ const LoadingFallback = () => (
 
 export default function App() {
   const [lang, setLang] = useState<'en' | 'pt'>('en');
+  const [currentPath, setCurrentPath] = useState(typeof window !== 'undefined' ? window.location.pathname : '/');
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    
+    const handlePopState = () => {
+      setCurrentPath(window.location.pathname);
+    };
+    
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
+
   const t = TRANSLATIONS[lang];
+
+  const isOneOnOnePage = currentPath === '/mentorship/one-on-one-mentorship' || currentPath === '/mentorship/one-on-one-mentorship/';
+
+  if (isOneOnOnePage) {
+    return <OneOnOneMentorship lang={lang} setLang={setLang} t={t} />;
+  }
 
   return (
     <div className="min-h-screen bg-[#FCFBF8] text-[#060606] selection:bg-[#EF7722]/10 selection:text-[#EF7722]">

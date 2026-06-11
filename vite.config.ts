@@ -10,23 +10,46 @@ function critical(options) {
   return {
     name: 'critical',
     closeBundle() {
-      // Inlining the whole CSS directly avoids Puppeteer crash and is super fast!
-      const htmlPath = path.resolve(__dirname, 'dist', 'index.html');
-      let html = fs.readFileSync(htmlPath, 'utf-8');
-      const cssLinkRegex = /<link rel="stylesheet".*?href="(\/assets\/[^"]+\.css)".*?>/;
-      const match = html.match(cssLinkRegex);
-      if (match) {
-        const cssPath = path.resolve(__dirname, 'dist', match[1].replace(/^\//, ''));
-        const cssContent = fs.readFileSync(cssPath, 'utf-8');
-        html = html.replace(cssLinkRegex, `<style>${cssContent}</style>`);
-        fs.writeFileSync(htmlPath, html);
-        console.log('Inlined total CSS successfully!');
+      // Find and inline CSS inside any .html files under 'dist' to avoid Puppeteer layout shifts
+      const globHtmlFiles = (dir) => {
+        let results = [];
+        if (!fs.existsSync(dir)) return results;
+        const list = fs.readdirSync(dir);
+        list.forEach((file) => {
+          const filePath = path.resolve(dir, file);
+          const stat = fs.statSync(filePath);
+          if (stat && stat.isDirectory()) {
+            results = results.concat(globHtmlFiles(filePath));
+          } else if (file.endsWith('.html')) {
+            results.push(filePath);
+          }
+        });
+        return results;
+      };
+
+      const distDir = path.resolve(__dirname, 'dist');
+      if (fs.existsSync(distDir)) {
+        const htmlFiles = globHtmlFiles(distDir);
+        htmlFiles.forEach((htmlPath) => {
+          let html = fs.readFileSync(htmlPath, 'utf-8');
+          const cssLinkRegex = /<link rel="stylesheet".*?href="(\/assets\/[^"]+\.css)".*?>/;
+          const match = html.match(cssLinkRegex);
+          if (match) {
+            const cssPath = path.resolve(__dirname, 'dist', match[1].replace(/^\//, ''));
+            if (fs.existsSync(cssPath)) {
+              const cssContent = fs.readFileSync(cssPath, 'utf-8');
+              html = html.replace(cssLinkRegex, `<style>${cssContent}</style>`);
+              fs.writeFileSync(htmlPath, html);
+              console.log(`Inlined CSS successfully for ${path.relative(distDir, htmlPath)}!`);
+            }
+          }
+        });
       }
     }
   };
 }
 
-const routesList = ['/'];
+const routesList = ['/', '/mentorship/one-on-one-mentorship'];
 
 export default defineConfig(({mode}) => {
   const env = loadEnv(mode, '.', '');
