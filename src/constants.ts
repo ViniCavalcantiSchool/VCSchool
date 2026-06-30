@@ -7,7 +7,7 @@ export const TRANSLATIONS = {
       mentorship: "Mentorship",
       portfolio: "Portfolio",
       contact: "Contact",
-      members: "https://hotmart.com/en/club/vini-cavalcanti"
+      members: "https://members.vinicavalcanti.com"
     },
     hero: {
       badge: "Vini Cavalcanti School",
@@ -157,7 +157,7 @@ export const TRANSLATIONS = {
       mentorship: "Mentoria",
       portfolio: "Portfólio",
       contact: "Contato",
-      members: "https://hotmart.com/en/club/vini-cavalcanti"
+      members: "https://members.vinicavalcanti.com"
     },
     hero: {
       badge: "Vini Cavalcanti School",
