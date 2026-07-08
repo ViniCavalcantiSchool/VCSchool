@@ -196,7 +196,7 @@ export default function OneOnOneMentorship({ lang, setLang, t }: OneOnOneMentors
               <h1 className="h-display">Finish a portfolio-ready character with a Senior Artist reviewing every step.</h1>
               <p className="hero__sub">Ten weeks of direct, one-on-one guidance from a Senior 3D Character Artist working inside real studios. Your work, on screen, every single week.</p>
               <div className="hero__cta-row">
-                <a href="https://pay.hotmart.com/D105581670W?bid=1781143563417" className="btn btn--primary" target="_blank" rel="noopener noreferrer">Sign up now!</a>
+                <a href="https://pay.hotmart.com/D105581670W?bid=1781143563417" id="mentorship-signup-hero" className="btn btn--primary btn-compra" target="_blank" rel="noopener noreferrer">Sign up now!</a>
                 <div className="hero__price">
                   <span className="hero__price-label">Investment</span>
                   <span className="hero__price-value">$600</span>
@@ -597,8 +597,8 @@ export default function OneOnOneMentorship({ lang, setLang, t }: OneOnOneMentors
                 <span className="pricing__price-note">one payment, or split in 3</span>
               </div>
               <div className="pricing__cta">
-                <a href="https://pay.hotmart.com/D105581670W?bid=1781143563417" className="btn btn--primary" target="_blank" rel="noopener noreferrer">Sign up now!</a>
-                <a href="https://pay.hotmart.com/D105581670W?off=1l4bjdm8&amp;bid=1781143564021" className="btn btn--secondary" target="_blank" rel="noopener noreferrer">Sign up now! 3 payments</a>
+                <a href="https://pay.hotmart.com/D105581670W?bid=1781143563417" id="mentorship-signup-pricing-onepay" className="btn btn--primary btn-compra" target="_blank" rel="noopener noreferrer">Sign up now!</a>
+                <a href="https://pay.hotmart.com/D105581670W?off=1l4bjdm8&amp;bid=1781143564021" id="mentorship-signup-pricing-3pay" className="btn btn--secondary btn-compra" target="_blank" rel="noopener noreferrer">Sign up now! 3 payments</a>
               </div>
               <p className="pricing__scarcity">Because every session is one-on-one, each season has a hard cap on students. When the spots are taken, enrollment closes until the next season.</p>
             </div>
@@ -643,8 +643,8 @@ export default function OneOnOneMentorship({ lang, setLang, t }: OneOnOneMentors
             <h2 className="h-display">Ten weeks from now, you have a finished character. Or another folder of WIPs.</h2>
             <p>Spots are limited because every session is one-on-one. If you're ready to stop guessing and start finishing, this is the seat next to a Senior Artist.</p>
             <div className="final-cta__row">
-              <a href="https://pay.hotmart.com/D105581670W?bid=1781143563417" className="btn btn--inverse" target="_blank" rel="noopener noreferrer">Sign up now!</a>
-              <a href="https://pay.hotmart.com/D105581670W?off=1l4bjdm8&amp;bid=1781143564021" className="btn btn--outline-light" target="_blank" rel="noopener noreferrer">Sign up now! 3 payments</a>
+              <a href="https://pay.hotmart.com/D105581670W?bid=1781143563417" id="mentorship-signup-footer-onepay" className="btn btn--inverse btn-compra" target="_blank" rel="noopener noreferrer">Sign up now!</a>
+              <a href="https://pay.hotmart.com/D105581670W?off=1l4bjdm8&amp;bid=1781143564021" id="mentorship-signup-footer-3pay" className="btn btn--outline-light btn-compra" target="_blank" rel="noopener noreferrer">Sign up now! 3 payments</a>
             </div>
           </div>
         </section>
