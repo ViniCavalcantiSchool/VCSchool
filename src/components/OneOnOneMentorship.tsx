@@ -638,7 +638,7 @@ export default function OneOnOneMentorship({ lang, setLang, t }: OneOnOneMentors
           <canvas className="mesh-canvas mesh-canvas--br" width="280" height="280" data-stroke="light" aria-hidden="true"></canvas>
           <div className="container reveal">
             <div className="final-cta__media">
-              <img src={getImageUrl('Banner.webp')} alt="Stylized 3D character with a stack of books, created by Vini Cavalcanti" width="400" height="400" loading="lazy" />
+              <img src={getImageUrl('Banner-scaled.webp')} alt="Stylized 3D character with a stack of books, created by Vini Cavalcanti" width="400" height="400" loading="lazy" />
             </div>
             <h2 className="h-display">Ten weeks from now, you have a finished character. Or another folder of WIPs.</h2>
             <p>Spots are limited because every session is one-on-one. If you're ready to stop guessing and start finishing, this is the seat next to a Senior Artist.</p>
