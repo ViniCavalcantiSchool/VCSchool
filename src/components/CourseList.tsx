@@ -94,6 +94,13 @@ export default function CourseList({ courses, t }: CourseListProps) {
             <div 
               onClick={(e) => {
                 if ((e.target as HTMLElement).closest('a')) return;
+                if (course.title === "ZBrush for Stylized Characters" || course.title === "ZBrush para Personagens Estilizados") {
+                  e.preventDefault();
+                  window.history.pushState({}, '', '/courses/zbrush-for-stylized-characters');
+                  window.dispatchEvent(new PopStateEvent('popstate'));
+                  window.scrollTo(0, 0);
+                  return;
+                }
                 setExpandedId(expandedId === course.title ? null : course.title);
               }}
               className="flex flex-col cursor-pointer h-full"
@@ -137,24 +144,44 @@ export default function CourseList({ courses, t }: CourseListProps) {
                 <p className="mt-2 text-sm leading-relaxed text-black/60 line-clamp-3 min-h-[4.5rem]">{course.desc}</p>
                 <div className="mt-auto flex items-center justify-between gap-3 border-t border-black/5 pt-5">
                   <div className="flex items-center">
-                    <div className={`rounded-full border border-black/10 px-4 py-2 text-xs font-medium shadow-sm transition hover:bg-black hover:text-white whitespace-nowrap ${expandedId === course.title ? 'hidden' : 'bg-white'}`}>
-                      {t.details}
-                    </div>
-                    <div className={`rounded-full border border-black/10 bg-[#F5F5F2] px-4 py-2 text-xs font-medium shadow-sm whitespace-nowrap ${expandedId === course.title ? 'block' : 'hidden'}`}>
-                      {t.close}
-                    </div>
+                    {course.title === "ZBrush for Stylized Characters" || course.title === "ZBrush para Personagens Estilizados" ? null : (
+                      <>
+                        <div className={`rounded-full border border-black/10 px-4 py-2 text-xs font-medium shadow-sm transition hover:bg-black hover:text-white whitespace-nowrap ${expandedId === course.title ? 'hidden' : 'bg-white'}`}>
+                          {t.details}
+                        </div>
+                        <div className={`rounded-full border border-black/10 bg-[#F5F5F2] px-4 py-2 text-xs font-medium shadow-sm whitespace-nowrap ${expandedId === course.title ? 'block' : 'hidden'}`}>
+                          {t.close}
+                        </div>
+                      </>
+                    )}
                   </div>
 
                   <div className="flex items-center gap-3">
-                    <a 
-                      href={course.checkout}
-                      id={`course-buy-top-${course.title.toLowerCase().replace(/\s+/g, '-')}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={`btn-compra rounded-full bg-[#EF7722] px-5 py-2.5 text-xs font-bold text-white shadow-sm hover:bg-[#d9661b] transition-all whitespace-nowrap hover:scale-105 active:scale-95 ${expandedId === course.title ? 'hidden' : ''}`}
-                    >
-                      {t.buy}
-                    </a>
+                    {course.title === "ZBrush for Stylized Characters" || course.title === "ZBrush para Personagens Estilizados" ? (
+                      <a 
+                        href="/courses/zbrush-for-stylized-characters"
+                        id={`course-buy-top-${course.title.toLowerCase().replace(/\s+/g, '-')}`}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          window.history.pushState({}, '', '/courses/zbrush-for-stylized-characters');
+                          window.dispatchEvent(new PopStateEvent('popstate'));
+                          window.scrollTo(0, 0);
+                        }}
+                        className="btn-compra rounded-full bg-[#EF7722] px-5 py-2.5 text-xs font-bold text-white shadow-sm hover:bg-[#d9661b] transition-all whitespace-nowrap hover:scale-105 active:scale-95"
+                      >
+                        {course.title === "ZBrush para Personagens Estilizados" ? "Começar agora!" : "Start now!"}
+                      </a>
+                    ) : (
+                      <a 
+                        href={course.checkout}
+                        id={`course-buy-top-${course.title.toLowerCase().replace(/\s+/g, '-')}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={`btn-compra rounded-full bg-[#EF7722] px-5 py-2.5 text-xs font-bold text-white shadow-sm hover:bg-[#d9661b] transition-all whitespace-nowrap hover:scale-105 active:scale-95 ${expandedId === course.title ? 'hidden' : ''}`}
+                      >
+                        {t.buy}
+                      </a>
+                    )}
                     <div className="flex flex-col items-end">
                       <span className="text-[10px] uppercase tracking-wider text-black/30 font-bold leading-none mb-1">{t.priceLabel}</span>
                       <div className="text-xl font-bold text-[#EF7722]">{course.price}</div>

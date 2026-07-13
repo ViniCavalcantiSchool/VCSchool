@@ -2,6 +2,7 @@ import React, { useState, useEffect, lazy, Suspense } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import OneOnOneMentorship from './components/OneOnOneMentorship';
+import ZBrushCourse from './components/ZBrushCourse';
 import { TRANSLATIONS, COURSES_EN, COURSES_PT, BUNDLES, FAQ_ITEMS, SOCIAL_LINKS } from './constants';
 
 const About = lazy(() => import('./components/About'));
@@ -36,9 +37,18 @@ export default function App() {
   const t = TRANSLATIONS[lang];
 
   const isOneOnOnePage = currentPath === '/mentorship/one-on-one-mentorship' || currentPath === '/mentorship/one-on-one-mentorship/';
+  const isZBrushPage = 
+    currentPath === '/zbrush-for-stylized-characters' || 
+    currentPath === '/zbrush-for-stylized-characters/' || 
+    currentPath === '/courses/zbrush-for-stylized-characters' || 
+    currentPath === '/courses/zbrush-for-stylized-characters/';
 
   if (isOneOnOnePage) {
     return <OneOnOneMentorship lang={lang} setLang={setLang} t={t} />;
+  }
+
+  if (isZBrushPage) {
+    return <ZBrushCourse lang={lang} setLang={setLang} />;
   }
 
   return (
