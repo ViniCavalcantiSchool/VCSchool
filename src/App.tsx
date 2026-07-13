@@ -3,6 +3,7 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import OneOnOneMentorship from './components/OneOnOneMentorship';
 import ZBrushCourse from './components/ZBrushCourse';
+import BabyAllosaurusCourse from './components/BabyAllosaurusCourse';
 import { TRANSLATIONS, COURSES_EN, COURSES_PT, BUNDLES, FAQ_ITEMS, SOCIAL_LINKS } from './constants';
 
 const About = lazy(() => import('./components/About'));
@@ -43,12 +44,22 @@ export default function App() {
     currentPath === '/courses/zbrush-for-stylized-characters' || 
     currentPath === '/courses/zbrush-for-stylized-characters/';
 
+  const isBabyAllosaurusPage = 
+    currentPath === '/character-design-baby-allosaurus' || 
+    currentPath === '/character-design-baby-allosaurus/' || 
+    currentPath === '/courses/character-design-baby-allosaurus' || 
+    currentPath === '/courses/character-design-baby-allosaurus/';
+
   if (isOneOnOnePage) {
     return <OneOnOneMentorship lang={lang} setLang={setLang} t={t} />;
   }
 
   if (isZBrushPage) {
     return <ZBrushCourse lang={lang} setLang={setLang} />;
+  }
+
+  if (isBabyAllosaurusPage) {
+    return <BabyAllosaurusCourse lang={lang} setLang={setLang} />;
   }
 
   return (
@@ -61,6 +72,7 @@ export default function App() {
           <About t={t.about} />
           <CourseList 
             t={t.courses} 
+            lang={lang}
             courses={lang === 'en' ? COURSES_EN : COURSES_PT} 
           />
           {/* <BundleList t={t.bundles} bundles={BUNDLES} /> */}

@@ -3,6 +3,7 @@ import { Course } from '../types';
 
 interface CourseListProps {
   courses: Course[];
+  lang: 'en' | 'pt';
   t: {
     title: string;
     filters: {
@@ -30,7 +31,7 @@ interface CourseListProps {
   };
 }
 
-export default function CourseList({ courses, t }: CourseListProps) {
+export default function CourseList({ courses, lang, t }: CourseListProps) {
   const [activeFilter, setActiveFilter] = useState('All');
   const [isMobileExpanded, setIsMobileExpanded] = useState(false);
   const [isDesktop, setIsDesktop] = useState(false);
@@ -94,9 +95,12 @@ export default function CourseList({ courses, t }: CourseListProps) {
             <div 
               onClick={(e) => {
                 if ((e.target as HTMLElement).closest('a')) return;
-                if (course.title === "ZBrush for Stylized Characters" || course.title === "ZBrush para Personagens Estilizados") {
+                const isZBrush = course.title === "ZBrush for Stylized Characters" || course.title === "ZBrush para Personagens Estilizados";
+                const isBabyAllosaurus = course.title === "Character Design: Baby Allosaurus";
+                if (isZBrush || isBabyAllosaurus) {
                   e.preventDefault();
-                  window.history.pushState({}, '', '/courses/zbrush-for-stylized-characters');
+                  const targetPath = isZBrush ? '/courses/zbrush-for-stylized-characters' : '/courses/character-design-baby-allosaurus';
+                  window.history.pushState({}, '', targetPath);
                   window.dispatchEvent(new PopStateEvent('popstate'));
                   window.scrollTo(0, 0);
                   return;
@@ -144,7 +148,7 @@ export default function CourseList({ courses, t }: CourseListProps) {
                 <p className="mt-2 text-sm leading-relaxed text-black/60 line-clamp-3 min-h-[4.5rem]">{course.desc}</p>
                 <div className="mt-auto flex items-center justify-between gap-3 border-t border-black/5 pt-5">
                   <div className="flex items-center">
-                    {course.title === "ZBrush for Stylized Characters" || course.title === "ZBrush para Personagens Estilizados" ? null : (
+                    {course.title === "ZBrush for Stylized Characters" || course.title === "ZBrush para Personagens Estilizados" || course.title === "Character Design: Baby Allosaurus" ? null : (
                       <>
                         <div className={`rounded-full border border-black/10 px-4 py-2 text-xs font-medium shadow-sm transition hover:bg-black hover:text-white whitespace-nowrap ${expandedId === course.title ? 'hidden' : 'bg-white'}`}>
                           {t.details}
@@ -157,19 +161,20 @@ export default function CourseList({ courses, t }: CourseListProps) {
                   </div>
 
                   <div className="flex items-center gap-3">
-                    {course.title === "ZBrush for Stylized Characters" || course.title === "ZBrush para Personagens Estilizados" ? (
+                    {course.title === "ZBrush for Stylized Characters" || course.title === "ZBrush para Personagens Estilizados" || course.title === "Character Design: Baby Allosaurus" ? (
                       <a 
-                        href="/courses/zbrush-for-stylized-characters"
+                        href={course.title === "Character Design: Baby Allosaurus" ? "/courses/character-design-baby-allosaurus" : "/courses/zbrush-for-stylized-characters"}
                         id={`course-buy-top-${course.title.toLowerCase().replace(/\s+/g, '-')}`}
                         onClick={(e) => {
                           e.preventDefault();
-                          window.history.pushState({}, '', '/courses/zbrush-for-stylized-characters');
+                          const targetPath = course.title === "Character Design: Baby Allosaurus" ? "/courses/character-design-baby-allosaurus" : "/courses/zbrush-for-stylized-characters";
+                          window.history.pushState({}, '', targetPath);
                           window.dispatchEvent(new PopStateEvent('popstate'));
                           window.scrollTo(0, 0);
                         }}
                         className="btn-compra rounded-full bg-[#EF7722] px-5 py-2.5 text-xs font-bold text-white shadow-sm hover:bg-[#d9661b] transition-all whitespace-nowrap hover:scale-105 active:scale-95"
                       >
-                        {course.title === "ZBrush para Personagens Estilizados" ? "Começar agora!" : "Start now!"}
+                        {lang === 'pt' ? "Começar agora!" : "Start now!"}
                       </a>
                     ) : (
                       <a 
