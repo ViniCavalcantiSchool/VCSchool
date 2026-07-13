@@ -1906,3 +1906,422 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
   .allosaurus-page .faq__item summary:hover .faq__icon { background: var(--color-orange-soft); color: var(--color-orange); }
 }
 
+/* ==========================================================================
+   Vini Cavalcanti School — Retopology in TopoGun 3 LP Custom styles
+   ========================================================================== */
+
+.retopology-page {
+  --color-navy: #0A5A9E;
+  --color-navy-deep: #063F73;
+  --color-navy-light: #1470B8;
+}
+
+.retopology-page .section--pattern-light { position: relative; overflow: hidden; }
+.retopology-page .section--pattern-light > .container { position: relative; z-index: 1; }
+.retopology-page .section--pattern-light::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='83.14'%3E%3Cpath d='M0 .5h48M0 42.07h48M0 0l48 83.14M48 0L0 83.14' stroke='%23FFFFFF' stroke-opacity='.07' fill='none'/%3E%3C/svg%3E");
+}
+
+.retopology-page .hero {
+  background: linear-gradient(160deg, var(--color-navy-deep), var(--color-navy) 45%, var(--color-navy-light));
+  color: var(--color-white);
+  padding-block: 3rem 3.5rem;
+}
+@media (min-width: 768px) {
+  .retopology-page .hero { padding-block: 4.5rem 5rem; }
+}
+.retopology-page .hero__grid { display: grid; gap: 2.5rem; }
+@media (min-width: 768px) {
+  .retopology-page .hero__grid { grid-template-columns: 0.95fr 1.05fr; align-items: center; }
+}
+.retopology-page .hero__badges { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; margin-bottom: 1.25rem; }
+.retopology-page .hero h1 {
+  font-size: 2.25rem;
+  max-width: 40rem;
+  color: var(--color-white);
+}
+@media (min-width: 640px) { .retopology-page .hero h1 { font-size: 3rem; } }
+@media (min-width: 1024px) { .retopology-page .hero h1 { font-size: 3.5rem; } }
+.retopology-page .hero__sub {
+  margin-top: 1.25rem;
+  max-width: 30rem;
+  font-size: 1rem;
+  line-height: var(--leading-relaxed);
+  color: rgba(255,255,255,.72);
+}
+@media (min-width: 640px) { .retopology-page .hero__sub { font-size: 1.125rem; } }
+.retopology-page .hero__cta-row {
+  margin-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.25rem;
+}
+.retopology-page .hero__price { display: flex; flex-direction: column; }
+.retopology-page .hero__price-label {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-widest);
+  color: rgba(255,255,255,.4);
+  margin-bottom: 0.25rem;
+}
+.retopology-page .hero__price-value { font-size: 1.875rem; font-weight: 700; color: var(--color-orange-grad-end); line-height: 1; }
+.retopology-page .hero__price-note { font-size: 0.75rem; color: rgba(255,255,255,.5); margin-top: 0.25rem; }
+.retopology-page .hero__media { position: relative; }
+.retopology-page .video-frame {
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: var(--radius-card-lg);
+  padding: 10px;
+  box-shadow: var(--shadow-xl);
+}
+.retopology-page .video-frame video {
+  width: 100%;
+  border-radius: calc(var(--radius-card-lg) - 8px);
+  background: var(--color-navy-deep);
+}
+.retopology-page .hero__media-caption {
+  margin-top: 0.875rem;
+  text-align: center;
+  font-size: 0.75rem;
+  color: rgba(255,255,255,.45);
+}
+
+.retopology-page .eyebrow--course {
+  background: var(--color-orange);
+  color: var(--color-white);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-widest);
+  font-size: 0.6875rem;
+}
+.retopology-page .badge--hero {
+  background: rgba(255,255,255,.08);
+  color: rgba(255,255,255,.85);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.15);
+  font-weight: 500;
+  letter-spacing: 0;
+  font-size: 0.75rem;
+}
+
+.retopology-page .studios .container { text-align: center; }
+.retopology-page .studios__line {
+  font-size: 1.0625rem;
+  color: rgba(0,0,0,.65);
+  max-width: 36rem;
+  margin-inline: auto;
+}
+.retopology-page .studios__line strong { color: rgba(0,0,0,.9); font-weight: 700; }
+.retopology-page .studios__row {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: rgba(0,0,0,.55);
+}
+@media (min-width: 640px) { .retopology-page .studios__row { font-size: 0.875rem; } }
+.retopology-page .studios__row span {
+  border-radius: var(--radius-pill);
+  background: var(--color-pill-alt);
+  padding: 0.5rem 1rem;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,.05);
+}
+
+.retopology-page .module-card { padding: 2rem; }
+.retopology-page .module-card__num {
+  display: inline-flex;
+  font-family: var(--font-display);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: var(--tracking-wider);
+  color: var(--color-orange);
+  background: var(--color-orange-soft);
+  border-radius: var(--radius-pill);
+  padding: 0.375rem 0.875rem;
+  margin-bottom: 1.25rem;
+}
+.retopology-page .module-card--blue .module-card__num { color: var(--color-blue); background: var(--color-blue-soft); }
+.retopology-page .module-card h3 { font-size: 1.0625rem; font-weight: 600; letter-spacing: var(--tracking-tight); }
+.retopology-page .module-card p { margin-top: 0.625rem; font-size: 0.875rem; line-height: var(--leading-relaxed); color: rgba(0,0,0,.6); }
+
+.retopology-page .identity {
+  background: linear-gradient(160deg, var(--color-navy-deep) 30%, var(--color-navy));
+}
+.retopology-page .identity__grid { display: grid; gap: 2.5rem; align-items: center; }
+@media (min-width: 768px) { .retopology-page .identity__grid { grid-template-columns: 0.85fr 1.15fr; } }
+.retopology-page .identity__media img {
+  border-radius: var(--radius-card-lg);
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.06);
+  padding: 10px;
+  box-shadow: var(--shadow-xl);
+  max-width: 26rem;
+  width: 100%;
+  height: auto;
+  margin-inline: auto;
+}
+@media (min-width: 768px) { .retopology-page .identity__media img { margin-inline: 0; } }
+.retopology-page .identity__body h2 { font-size: 1.875rem; color: var(--color-white); font-weight: bold; }
+@media (min-width: 640px) { .retopology-page .identity__body h2 { font-size: 2.5rem; } }
+.retopology-page .identity__body h2 span {
+  color: #EF7722;
+  font-weight: bold;
+}
+.retopology-page .identity__body p {
+  margin-top: 1.25rem;
+  max-width: 32rem;
+  font-size: 1.0625rem;
+  line-height: var(--leading-relaxed);
+  color: rgba(255,255,255,.72);
+}
+.retopology-page .identity__body .btn { margin-top: 2rem; }
+
+.retopology-page .sticky-cta {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: rgba(252, 251, 248, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-top: 1px solid rgba(0,0,0,.05);
+  padding: 0.75rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transform: translateY(100%);
+  opacity: 0;
+  transition: transform .3s cubic-bezier(.4,0,.2,1), opacity .3s;
+}
+.retopology-page .sticky-cta.is-visible {
+  transform: translateY(0);
+  opacity: 1;
+}
+@media (min-width: 768px) {
+  .retopology-page .sticky-cta {
+    display: none !important;
+  }
+}
+.retopology-page .sticky-cta__price {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+.retopology-page .sticky-cta__label {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-widest);
+  color: rgba(0,0,0,.4);
+  margin-bottom: 0.125rem;
+}
+.retopology-page .sticky-cta__value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-orange);
+  line-height: 1;
+}
+.retopology-page .sticky-cta .btn {
+  padding: 0.625rem 1.25rem;
+  font-size: 0.875rem;
+  box-shadow: var(--shadow-orange);
+}
+
+.retopology-page .bonus-card { padding: 2rem; }
+.retopology-page .bonus-card h3 { font-size: 1.0625rem; font-weight: 700; letter-spacing: var(--tracking-tight); color: var(--color-orange); }
+.retopology-page .bonus-card p { margin-top: 0.625rem; font-size: 0.875rem; line-height: var(--leading-relaxed); color: rgba(0,0,0,.65); }
+
+.retopology-page .bonus-single { max-width: 44rem; margin-inline: auto; }
+.retopology-page .bonus-single .bonus-card { padding: 2.5rem; text-align: center; }
+
+.retopology-page .instructor__grid { display: grid; gap: 3rem; align-items: center; }
+@media (min-width: 768px) { .retopology-page .instructor__grid { grid-template-columns: 0.8fr 1.2fr; } }
+.retopology-page .instructor__photo {
+  background: var(--color-white);
+  border: 1px solid rgba(0,0,0,.05);
+  border-radius: 40px;
+  padding: 10px;
+  box-shadow: var(--shadow-xl);
+  width: fit-content;
+  margin-inline: auto;
+  max-width: 24rem;
+}
+@media (min-width: 640px) { .retopology-page .instructor__photo { padding: 15px; } }
+@media (min-width: 768px) { .retopology-page .instructor__photo { margin-inline: 0; max-width: none; } }
+.retopology-page .instructor__photo img { border-radius: 28px; }
+.retopology-page .instructor__body h2 { font-size: 1.875rem; margin-top: 1rem; }
+@media (min-width: 640px) { .retopology-page .instructor__body h2 { font-size: 2.25rem; } }
+.retopology-page .instructor__bio {
+  margin-top: 1.5rem;
+  font-size: 18px;
+  line-height: var(--leading-body);
+  color: var(--color-body);
+}
+.retopology-page .instructor__bio strong { font-weight: 700; color: rgba(0,0,0,.95); }
+.retopology-page .instructor__bio em { font-style: italic; color: rgba(0,0,0,.85); }
+.retopology-page .instructor__pills { margin-top: 1.5rem; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.retopology-page .instructor__pills span {
+  border-radius: var(--radius-pill);
+  background: var(--color-pill-alt);
+  padding: 0.5rem 1rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: rgba(0,0,0,.55);
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,.05);
+}
+@media (min-width: 640px) { .retopology-page .instructor__pills span { font-size: 0.875rem; } }
+
+.retopology-page .pricing { max-width: 44rem; margin-inline: auto; }
+.retopology-page .pricing__card { padding: 2rem; position: relative; overflow: hidden; }
+@media (min-width: 640px) { .retopology-page .pricing__card { padding: 3rem; } }
+.retopology-page .pricing__card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 6px;
+  background: linear-gradient(to right, var(--color-orange), var(--color-orange-grad-end), var(--color-blue));
+}
+.retopology-page .pricing__badges { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.retopology-page .pricing__card h3 {
+  margin-top: 1.5rem;
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: var(--tracking-tight);
+}
+@media (min-width: 640px) { .retopology-page .pricing__card h3 { font-size: 2rem; } }
+.retopology-page .pricing__includes { margin-top: 1.75rem; display: grid; gap: 0.875rem; }
+@media (min-width: 640px) { .retopology-page .pricing__includes { grid-template-columns: repeat(2, 1fr); } }
+.retopology-page .pricing__includes li {
+  font-size: 0.9375rem;
+  line-height: var(--leading-relaxed);
+  color: rgba(0,0,0,.7);
+  padding-left: 1.75rem;
+  position: relative;
+}
+.retopology-page .pricing__includes li::before {
+  content: "✓";
+  position: absolute; left: 0;
+  color: var(--color-orange);
+  font-weight: 700;
+}
+.retopology-page .pricing__price-row { margin-top: 1.5rem; display: flex; align-items: baseline; gap: 0.75rem; }
+.retopology-page .pricing__price { font-size: 2.5rem; font-weight: 700; color: var(--color-orange); line-height: 1; }
+.retopology-page .pricing__price-note { font-size: 0.875rem; color: rgba(0,0,0,.5); }
+.retopology-page .pricing__cta {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(0,0,0,.05);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.retopology-page .pricing__cta .btn { width: 100%; }
+.retopology-page .pricing__scarcity {
+  margin-top: 1.25rem;
+  font-size: 0.875rem;
+  color: rgba(0,0,0,.55);
+  line-height: var(--leading-relaxed);
+}
+
+.retopology-page .faq .container { max-width: 64rem; }
+.retopology-page .faq__list { display: flex; flex-direction: column; gap: 1rem; }
+.retopology-page .faq__item {
+  border-radius: var(--radius-card);
+  border: 1px solid rgba(0,0,0,.05);
+  background: var(--color-white);
+  padding: 1.25rem 1.5rem;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow .15s;
+}
+.retopology-page .faq__item[open] { box-shadow: var(--shadow-md); }
+.retopology-page .faq__item summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  cursor: pointer;
+  list-style: none;
+  font-weight: 600;
+  color: rgba(0,0,0,.8);
+  min-height: 44px;
+  -webkit-tap-highlight-color: transparent;
+}
+.retopology-page .faq__item summary::-webkit-details-marker { display: none; }
+.retopology-page .faq__icon {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem; height: 2rem;
+  border-radius: var(--radius-pill);
+  background: rgba(0,0,0,.05);
+  font-size: 1.25rem;
+  font-weight: 300;
+  transition: transform .15s;
+}
+.retopology-page .faq__item[open] .faq__icon { transform: rotate(45deg); }
+.retopology-page .faq__answer {
+  margin-top: 1.25rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(0,0,0,.05);
+  font-size: 1rem;
+  line-height: var(--leading-relaxed);
+  color: rgba(0,0,0,.6);
+}
+
+.retopology-page .final-cta { text-align: center; }
+.retopology-page .final-cta--band {
+  background: linear-gradient(135deg, var(--color-navy-deep), var(--color-navy) 45%, var(--color-navy-light));
+  color: var(--color-white);
+}
+.retopology-page .final-cta h2 { font-size: 1.875rem; max-width: 38rem; margin-inline: auto; color: var(--color-white); }
+@media (min-width: 640px) { .retopology-page .final-cta h2 { font-size: 2.5rem; } }
+.retopology-page .final-cta p {
+  margin: 1.25rem auto 0;
+  max-width: 34rem;
+  font-size: 1.0625rem;
+  color: rgba(255,255,255,.72);
+  line-height: var(--leading-relaxed);
+}
+.retopology-page .final-cta__row {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+@media (min-width: 640px) { .retopology-page .final-cta__row { flex-direction: row; justify-content: center; } }
+
+@media (hover: hover) {
+  .retopology-page .module-card:hover, .retopology-page .bonus-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-xl);
+  }
+  .retopology-page .module-card:hover .module-card__num { background: var(--color-orange); color: var(--color-white); }
+  .retopology-page .module-card--blue:hover .module-card__num { background: var(--color-blue); color: var(--color-white); }
+  .retopology-page .module-card__num { transition: background .2s, color .2s; }
+  .retopology-page .studios__row span:hover {
+    background: var(--color-orange-soft);
+    color: var(--color-orange);
+    box-shadow: inset 0 0 0 1px rgba(239,119,34,.2);
+  }
+  .retopology-page .video-frame { transition: transform .3s cubic-bezier(.4,0,.2,1), box-shadow .3s cubic-bezier(.4,0,.2,1); }
+  .retopology-page .video-frame--hero:hover { transform: translateY(-4px) rotate(-.5deg); box-shadow: var(--shadow-xl), var(--shadow-orange); }
+  .retopology-page .identity__media img { transition: transform .3s cubic-bezier(.4,0,.2,1); }
+  .retopology-page .identity__media img:hover { transform: rotate(1deg) scale(1.01); }
+  .retopology-page .instructor__photo { transition: transform .3s cubic-bezier(.4,0,.2,1); }
+  .retopology-page .instructor__photo:hover { transform: rotate(1deg) scale(1.01); }
+  .retopology-page .faq__item:hover { box-shadow: var(--shadow-md); }
+  .retopology-page .faq__item summary:hover .faq__icon { background: var(--color-orange-soft); color: var(--color-orange); }
+}
+

@@ -4,6 +4,7 @@ import Hero from './components/Hero';
 import OneOnOneMentorship from './components/OneOnOneMentorship';
 import ZBrushCourse from './components/ZBrushCourse';
 import BabyAllosaurusCourse from './components/BabyAllosaurusCourse';
+import RetopologyCourse from './components/RetopologyCourse';
 import { TRANSLATIONS, COURSES_EN, COURSES_PT, BUNDLES, FAQ_ITEMS, SOCIAL_LINKS } from './constants';
 
 const About = lazy(() => import('./components/About'));
@@ -50,6 +51,12 @@ export default function App() {
     currentPath === '/courses/character-design-baby-allosaurus' || 
     currentPath === '/courses/character-design-baby-allosaurus/';
 
+  const isRetopologyPage = 
+    currentPath === '/retopology-in-topogun-3' || 
+    currentPath === '/retopology-in-topogun-3/' || 
+    currentPath === '/courses/retopology-in-topogun-3' || 
+    currentPath === '/courses/retopology-in-topogun-3/';
+
   if (isOneOnOnePage) {
     return <OneOnOneMentorship lang={lang} setLang={setLang} t={t} />;
   }
@@ -60,6 +67,10 @@ export default function App() {
 
   if (isBabyAllosaurusPage) {
     return <BabyAllosaurusCourse lang={lang} setLang={setLang} />;
+  }
+
+  if (isRetopologyPage) {
+    return <RetopologyCourse lang={lang} setLang={setLang} />;
   }
 
   return (
