@@ -6,8 +6,49 @@
     <link rel="preconnect" href="https://capi-automation.s3.us-east-2.amazonaws.com" crossorigin />
     <link rel="dns-prefetch" href="https://connect.facebook.net" />
     <link rel="dns-prefetch" href="https://capi-automation.s3.us-east-2.amazonaws.com" />
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s);j.async=true;j.src="https://api.vinicavalcanti.com/6wyopelvelg.js?"+i;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','m=DghYMTgoXTgpWDQ6WjE0SRFRV1hdQxQBWhoMGAUGERkGAAYXAhEZQQQDCA%3D%3D');</script>
+    <!-- Google Tag Manager (Optimized Lazy Loading on Interaction / Idle / Fallback) -->
+    <script>
+      (function() {
+        var gtmLoaded = false;
+        function loadGTM() {
+          if (gtmLoaded) return;
+          gtmLoaded = true;
+          
+          // Remove event listeners once loaded
+          window.removeEventListener('scroll', loadGTM, { passive: true });
+          window.removeEventListener('mousemove', loadGTM, { passive: true });
+          window.removeEventListener('touchstart', loadGTM, { passive: true });
+          window.removeEventListener('click', loadGTM, { passive: true });
+          
+          // Execute Google Tag Manager script
+          (function(w,d,s,l,i){
+            w[l]=w[l]||[];
+            w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
+            var f=d.getElementsByTagName(s)[0],j=d.createElement(s);
+            j.async=true;
+            j.src="https://api.vinicavalcanti.com/6wyopelvelg.js?"+i;
+            f.parentNode.insertBefore(j,f);
+          })(window,document,'script','dataLayer','m=DghYMTgoXTgpWDQ6WjE0SRFRV1hdQxQBWhoMGAUGERkGAAYXAhEZQQQDCA%3D%3D');
+        }
+
+        // Add event listeners for early interaction
+        window.addEventListener('scroll', loadGTM, { passive: true });
+        window.addEventListener('mousemove', loadGTM, { passive: true });
+        window.addEventListener('touchstart', loadGTM, { passive: true });
+        window.addEventListener('click', loadGTM, { passive: true });
+
+        // Fallback: load GTM after onload + safety timeout or when CPU is idle
+        window.addEventListener('load', function() {
+          if ('requestIdleCallback' in window) {
+            requestIdleCallback(function() {
+              setTimeout(loadGTM, 3000);
+            });
+          } else {
+            setTimeout(loadGTM, 4000);
+          }
+        });
+      })();
+    </script>
     <!-- End Google Tag Manager -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
