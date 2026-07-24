@@ -129,7 +129,7 @@ ${routesList.map(route => `  <url><loc>https://vinicavalcanti.com${route}</loc><
       rollupOptions: {
         output: {
           manualChunks: {
-            'react-vendor': ['react', 'react-dom', 'framer-motion', 'motion'],
+            'react-vendor': ['react', 'react-dom'],
           }
         }
       }

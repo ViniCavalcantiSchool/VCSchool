@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Menu, X, Globe } from 'lucide-react';
-import { motion, AnimatePresence } from 'motion/react';
 
 interface NavbarProps {
   lang: 'en' | 'pt';
@@ -116,76 +115,71 @@ export default function Navbar({ lang, setLang, t }: NavbarProps) {
       </nav>
 
       {/* Mobile Menu Overlay */}
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            className="overflow-hidden bg-[#FCFBF8] md:hidden border-t border-black/5"
+      <div
+        className={`overflow-hidden bg-[#FCFBF8] md:hidden border-t border-black/5 transition-all duration-300 ease-in-out ${
+          isOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0 pointer-events-none'
+        }`}
+      >
+        <div className="flex flex-col gap-1 px-4 pb-8 pt-4">
+          <a 
+            href="#courses" 
+            id="mobile-nav-courses"
+            onClick={(e) => handleNavClick(e, '#courses')}
+            className="rounded-xl px-4 py-3.5 text-lg font-medium text-black/80 hover:bg-black/5 active:bg-black/5 transition-colors"
           >
-            <div className="flex flex-col gap-1 px-4 pb-8 pt-4">
-              <a 
-                href="#courses" 
-                id="mobile-nav-courses"
-                onClick={(e) => handleNavClick(e, '#courses')}
-                className="rounded-xl px-4 py-3.5 text-lg font-medium text-black/80 hover:bg-black/5 active:bg-black/5 transition-colors"
-              >
-                {t.courses}
-              </a>
-              <a 
-                href="#mentorship" 
-                id="mobile-nav-mentorship"
-                onClick={(e) => handleNavClick(e, '#mentorship')}
-                className="rounded-xl px-4 py-3.5 text-lg font-medium text-black/80 hover:bg-black/5 active:bg-black/5 transition-colors"
-              >
-                {t.mentorship}
-              </a>
-              <a 
-                href="https://www.artstation.com/viniciuscavalcanti" 
-                id="mobile-nav-portfolio"
-                target="_blank" 
-                rel="noopener noreferrer"
-                onClick={() => setIsOpen(false)}
-                className="rounded-xl px-4 py-3.5 text-lg font-medium text-black/80 hover:bg-black/5 active:bg-black/5 transition-colors"
-              >
-                {t.portfolio}
-              </a>
-              <a 
-                href="#contact" 
-                id="mobile-nav-contact"
-                onClick={(e) => handleNavClick(e, '#contact')}
-                className="rounded-xl px-4 py-3.5 text-lg font-medium text-black/80 hover:bg-black/5 active:bg-black/5 transition-colors"
-              >
-                {t.contact}
-              </a>
-              <div className="flex px-4 pt-4">
-                <button 
-                  onClick={() => {
-                    setLang(lang === 'en' ? 'pt' : 'en');
-                    toggleMenu();
-                  }}
-                  className="w-full rounded-full border border-black/10 bg-white px-6 py-3.5 text-sm font-semibold shadow-sm active:scale-95 transition-all text-black/70"
-                >
-                  {lang === 'en' ? 'EN | PT' : 'PT | EN'}
-                </button>
-              </div>
-              <div className="px-4">
-                <a 
-                  href={t.members} 
-                  id="nav-members-mobile"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={toggleMenu}
-                  className="btn-portal mt-4 block rounded-full bg-[#0CA6DF] px-6 py-4 text-center text-lg font-semibold text-white shadow-md active:scale-95 transition-all"
-                >
-                  {lang === 'en' ? 'Members Area' : 'Área de Membros'}
-                </a>
-              </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+            {t.courses}
+          </a>
+          <a 
+            href="#mentorship" 
+            id="mobile-nav-mentorship"
+            onClick={(e) => handleNavClick(e, '#mentorship')}
+            className="rounded-xl px-4 py-3.5 text-lg font-medium text-black/80 hover:bg-black/5 active:bg-black/5 transition-colors"
+          >
+            {t.mentorship}
+          </a>
+          <a 
+            href="https://www.artstation.com/viniciuscavalcanti" 
+            id="mobile-nav-portfolio"
+            target="_blank" 
+            rel="noopener noreferrer"
+            onClick={() => setIsOpen(false)}
+            className="rounded-xl px-4 py-3.5 text-lg font-medium text-black/80 hover:bg-black/5 active:bg-black/5 transition-colors"
+          >
+            {t.portfolio}
+          </a>
+          <a 
+            href="#contact" 
+            id="mobile-nav-contact"
+            onClick={(e) => handleNavClick(e, '#contact')}
+            className="rounded-xl px-4 py-3.5 text-lg font-medium text-black/80 hover:bg-black/5 active:bg-black/5 transition-colors"
+          >
+            {t.contact}
+          </a>
+          <div className="flex px-4 pt-4">
+            <button 
+              onClick={() => {
+                setLang(lang === 'en' ? 'pt' : 'en');
+                toggleMenu();
+              }}
+              className="w-full rounded-full border border-black/10 bg-white px-6 py-3.5 text-sm font-semibold shadow-sm active:scale-95 transition-all text-black/70"
+            >
+              {lang === 'en' ? 'EN | PT' : 'PT | EN'}
+            </button>
+          </div>
+          <div className="px-4">
+            <a 
+              href={t.members} 
+              id="nav-members-mobile"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={toggleMenu}
+              className="btn-portal mt-4 block rounded-full bg-[#0CA6DF] px-6 py-4 text-center text-lg font-semibold text-white shadow-md active:scale-95 transition-all"
+            >
+              {lang === 'en' ? 'Members Area' : 'Área de Membros'}
+            </a>
+          </div>
+        </div>
+      </div>
     </header>
   );
 }
