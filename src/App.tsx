@@ -1,10 +1,6 @@
 import React, { useState, useEffect, lazy, Suspense } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-import OneOnOneMentorship from './components/OneOnOneMentorship';
-import ZBrushCourse from './components/ZBrushCourse';
-import BabyAllosaurusCourse from './components/BabyAllosaurusCourse';
-import RetopologyCourse from './components/RetopologyCourse';
 import { TRANSLATIONS, COURSES_EN, COURSES_PT, BUNDLES, FAQ_ITEMS, SOCIAL_LINKS } from './constants';
 
 const About = lazy(() => import('./components/About'));
@@ -14,6 +10,11 @@ const Testimonials = lazy(() => import('./components/Testimonials'));
 const FAQ = lazy(() => import('./components/FAQ'));
 const Contact = lazy(() => import('./components/Contact'));
 const Footer = lazy(() => import('./components/Footer'));
+
+const OneOnOneMentorship = lazy(() => import('./components/OneOnOneMentorship'));
+const ZBrushCourse = lazy(() => import('./components/ZBrushCourse'));
+const BabyAllosaurusCourse = lazy(() => import('./components/BabyAllosaurusCourse'));
+const RetopologyCourse = lazy(() => import('./components/RetopologyCourse'));
 
 const LoadingFallback = () => (
   <div style={{ height: '50vh', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#888' }}>
@@ -58,19 +59,35 @@ export default function App() {
     currentPath === '/courses/retopology-in-topogun-3/';
 
   if (isOneOnOnePage) {
-    return <OneOnOneMentorship lang={lang} setLang={setLang} t={t} />;
+    return (
+      <Suspense fallback={<LoadingFallback />}>
+        <OneOnOneMentorship lang={lang} setLang={setLang} t={t} />
+      </Suspense>
+    );
   }
 
   if (isZBrushPage) {
-    return <ZBrushCourse lang={lang} setLang={setLang} />;
+    return (
+      <Suspense fallback={<LoadingFallback />}>
+        <ZBrushCourse lang={lang} setLang={setLang} />
+      </Suspense>
+    );
   }
 
   if (isBabyAllosaurusPage) {
-    return <BabyAllosaurusCourse lang={lang} setLang={setLang} />;
+    return (
+      <Suspense fallback={<LoadingFallback />}>
+        <BabyAllosaurusCourse lang={lang} setLang={setLang} />;
+      </Suspense>
+    );
   }
 
   if (isRetopologyPage) {
-    return <RetopologyCourse lang={lang} setLang={setLang} />;
+    return (
+      <Suspense fallback={<LoadingFallback />}>
+        <RetopologyCourse lang={lang} setLang={setLang} />
+      </Suspense>
+    );
   }
 
   return (

@@ -20,8 +20,28 @@
     <link rel="preconnect" href="https://wp.vinicavalcanti.com" crossorigin />
     <link rel="dns-prefetch" href="https://wp.vinicavalcanti.com" />
 
-    <!-- Preload Hero Images -->
-    <link rel="preload" as="image" href="https://wp.vinicavalcanti.com/wp-content/uploads/2026/05/vinicius-cavalcanti-boardinsta01-3.webp" fetchpriority="high" />
+    <!-- Dynamic Smart Preload of Critical Hero Images based on pathname -->
+    <script>
+      (function() {
+        var path = window.location.pathname;
+        var preloadLink = document.createElement('link');
+        preloadLink.rel = 'preload';
+        preloadLink.as = 'image';
+        preloadLink.fetchPriority = 'high';
+        
+        if (path.indexOf('retopology-in-topogun-3') !== -1) {
+          preloadLink.href = 'https://wp.vinicavalcanti.com/wp-content/uploads/2026/07/topogun-poster-1280x720.webp';
+        } else if (path.indexOf('character-design-baby-allosaurus') !== -1) {
+          preloadLink.href = 'https://wp.vinicavalcanti.com/wp-content/uploads/2026/07/Cover.webp';
+        } else if (path.indexOf('zbrush-for-stylized-characters') !== -1) {
+          preloadLink.href = 'https://wp.vinicavalcanti.com/wp-content/uploads/2026/07/1280x720.webp';
+        } else {
+          preloadLink.href = 'https://wp.vinicavalcanti.com/wp-content/uploads/2026/05/vinicius-cavalcanti-boardinsta01-3.webp';
+        }
+        
+        document.head.appendChild(preloadLink);
+      })();
+    </script>
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />

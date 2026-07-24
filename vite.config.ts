@@ -49,7 +49,13 @@ function critical(options) {
   };
 }
 
-const routesList = ['/', '/mentorship/one-on-one-mentorship'];
+const routesList = [
+  '/',
+  '/mentorship/one-on-one-mentorship',
+  '/courses/zbrush-for-stylized-characters',
+  '/courses/character-design-baby-allosaurus',
+  '/courses/retopology-in-topogun-3'
+];
 
 export default defineConfig(({mode}) => {
   const env = loadEnv(mode, '.', '');
