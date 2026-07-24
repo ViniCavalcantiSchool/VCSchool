@@ -1,0 +1,20 @@
+# Vini Cavalcanti - 3D Character Artist & Education
+
+> High-quality courses and personalized mentorship for 3D character artists, sculpted and designed by senior industry professional Vini Cavalcanti.
+
+Welcome to the learning platform of Vini Cavalcanti, a Senior 3D Character Artist with years of industry experience. This site offers comprehensive training programs, professional mentorship, and highly-detailed courses on character modeling, sculpting, and retopology.
+
+## Main Navigation & Courses
+
+Explore our courses, bundles, and mentorship programs:
+
+- [Home Page](https://vinicavalcanti.com/) - Main portal, bundles, FAQ, testimonials, and contact form.
+- [ZBrush for Stylized Characters](https://vinicavalcanti.com/courses/zbrush-for-stylized-characters) - Master the complete process of creating stylized characters in ZBrush.
+- [Character Design: Baby Allosaurus](https://vinicavalcanti.com/courses/character-design-baby-allosaurus) - Step-by-step workflow for designing and sculpting realistic-stylized creatures.
+- [Retopology in TopoGun 3](https://vinicavalcanti.com/courses/retopology-in-topogun-3) - Learn professional, production-ready retopology workflows using TopoGun 3.
+- [One-on-One Mentorship](https://vinicavalcanti.com/mentorship/one-on-one-mentorship) - Get custom, direct, personalized feedback and guidance to fast-track your 3D art career.
+
+## Portfolio & Community
+
+- [ArtStation Portfolio](https://www.artstation.com/viniciuscavalcanti) - View professional work, concept sculpts, and character designs.
+- [Instagram](https://instagram.com/vinicius_cavalcanti) - Follow for 3D sculpt updates, tips, and art process content.

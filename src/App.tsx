@@ -1,6 +1,7 @@
 import React, { useState, useEffect, lazy, Suspense } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
+import LazySection from './components/LazySection';
 import { TRANSLATIONS, COURSES_EN, COURSES_PT, BUNDLES, FAQ_ITEMS, SOCIAL_LINKS } from './constants';
 
 const About = lazy(() => import('./components/About'));
@@ -96,24 +97,53 @@ export default function App() {
       
       <main>
         <Hero t={t.hero} />
-        <Suspense fallback={<LoadingFallback />}>
-          <About t={t.about} />
-          <CourseList 
-            t={t.courses} 
-            lang={lang}
-            courses={lang === 'en' ? COURSES_EN : COURSES_PT} 
-          />
-          {/* <BundleList t={t.bundles} bundles={BUNDLES} /> */}
-          <Mentorship t={t.mentorship} />
-          <Testimonials t={t.testimonials} />
-          <FAQ t={t.faq} items={FAQ_ITEMS[lang]} />
-          <Contact t={t.contact} />
-        </Suspense>
+        
+        <LazySection id="about" rootMargin="300px" fallback={<div className="min-h-[350px] bg-[#FCFBF8]" />}>
+          <Suspense fallback={<div className="min-h-[350px]" />}>
+            <About t={t.about} />
+          </Suspense>
+        </LazySection>
+
+        <LazySection id="courses" rootMargin="300px" fallback={<div className="min-h-[500px] bg-[#FCFBF8]" />}>
+          <Suspense fallback={<div className="min-h-[500px]" />}>
+            <CourseList 
+              t={t.courses} 
+              lang={lang}
+              courses={lang === 'en' ? COURSES_EN : COURSES_PT} 
+            />
+          </Suspense>
+        </LazySection>
+
+        <LazySection id="mentorship" rootMargin="300px" fallback={<div className="min-h-[400px] bg-[#FCFBF8]" />}>
+          <Suspense fallback={<div className="min-h-[400px]" />}>
+            <Mentorship t={t.mentorship} />
+          </Suspense>
+        </LazySection>
+
+        <LazySection id="testimonials" rootMargin="300px" fallback={<div className="min-h-[300px] bg-[#FCFBF8]" />}>
+          <Suspense fallback={<div className="min-h-[300px]" />}>
+            <Testimonials t={t.testimonials} />
+          </Suspense>
+        </LazySection>
+
+        <LazySection id="faq" rootMargin="300px" fallback={<div className="min-h-[400px] bg-[#FCFBF8]" />}>
+          <Suspense fallback={<div className="min-h-[400px]" />}>
+            <FAQ t={t.faq} items={FAQ_ITEMS[lang]} />
+          </Suspense>
+        </LazySection>
+
+        <LazySection id="contact" rootMargin="300px" fallback={<div className="min-h-[350px] bg-[#FCFBF8]" />}>
+          <Suspense fallback={<div className="min-h-[350px]" />}>
+            <Contact t={t.contact} />
+          </Suspense>
+        </LazySection>
       </main>
 
-      <Suspense fallback={<LoadingFallback />}>
-        <Footer t={t.footer} socialLinks={SOCIAL_LINKS} />
-      </Suspense>
+      <LazySection id="footer" rootMargin="200px" fallback={<div className="min-h-[200px] bg-[#FCFBF8]" />}>
+        <Suspense fallback={<div className="min-h-[200px]" />}>
+          <Footer t={t.footer} socialLinks={SOCIAL_LINKS} />
+        </Suspense>
+      </LazySection>
     </div>
   );
 }
